@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage(Static analysis) {
+        stage(Sonar analysis) {
 	agent {
             docker {
               image 'sonarqube'
