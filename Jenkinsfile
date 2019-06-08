@@ -21,6 +21,16 @@ pipeline {
                 }
             }
         }
+        stage(Static analysis) {
+	agent {
+            docker {
+              image 'sonarqube'
+                   }   
+   	    }
+            steps {
+                sh 'mvn sonar:sonar'
+            }
+ 	}
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
